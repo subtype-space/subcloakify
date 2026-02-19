@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E01UIU2O)
+
 <p align="center">
     <i>🚀 <a href="https://subtype.space">subcloakify</a> a free, tailwindcss v4 based Keycloak theme 🚀</i>
     <br/>
