@@ -11,10 +11,8 @@ import { Button } from "@/components/ui/button";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Passkey login
-            </CardTitle>
-            <CardDescription id="card-description">Use your passkey to authenticate now</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Passkey login</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Use your passkey to sign in</CardDescription>
         </CardHeader>
     );
 };

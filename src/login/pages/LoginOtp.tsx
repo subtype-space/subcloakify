@@ -14,10 +14,8 @@ import { Label } from "@/components/ui/label";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Welcome back
-            </CardTitle>
-            <CardDescription id="card-description">Enter the code provided by your authenticator</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Two-factor auth</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Enter the code from your authenticator app</CardDescription>
         </CardHeader>
     );
 };

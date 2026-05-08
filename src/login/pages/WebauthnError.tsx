@@ -8,10 +8,8 @@ import { CardContent, CardTitle, CardHeader, CardDescription } from "@/component
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                This is awkward...
-            </CardTitle>
-            <CardDescription id="card-description">There was an issue authenticating with your passkey</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Authentication failed</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">There was an issue authenticating with your passkey</CardDescription>
         </CardHeader>
     );
 };

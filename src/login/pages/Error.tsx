@@ -8,10 +8,8 @@ import { Button } from "@/components/ui/button";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Well, this is awkward...
-            </CardTitle>
-            <CardDescription id="card-description">Something happened and we couldn't process your request at this time</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">An error occurred</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">We couldn't process your request — please try again</CardDescription>
         </CardHeader>
     );
 };

@@ -17,9 +17,7 @@ type IdpReviewUserProfileProps = PageProps<Extract<KcContext, { pageId: "idp-rev
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Update your account information
-            </CardTitle>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Complete your profile</CardTitle>
         </CardHeader>
     );
 };

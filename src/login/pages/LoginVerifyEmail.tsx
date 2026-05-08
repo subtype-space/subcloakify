@@ -7,8 +7,8 @@ import { ReactNode, ReactElement } from "react";
 const header = (msg: string | number | boolean | Iterable<ReactNode> | ReactElement<any, any> | null | undefined) => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">Email verification</CardTitle>
-            <CardDescription id="card-description">{msg}</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Email verification</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">{msg}</CardDescription>
         </CardHeader>
     );
 };

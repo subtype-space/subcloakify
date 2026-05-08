@@ -8,10 +8,8 @@ import { CardContent, CardDescription, CardTitle, CardHeader } from "@/component
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                There's an existing account
-            </CardTitle>
-            <CardDescription id="card-description">What would you like to do?</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Existing account found</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Choose how to link your account</CardDescription>
         </CardHeader>
     );
 };

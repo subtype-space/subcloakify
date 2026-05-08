@@ -12,8 +12,8 @@ import { Switch } from "@/components/ui/switch";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">Configure 2FA</CardTitle>
-            <CardDescription id="card-description">For additional security, please configure 2FA.</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Configure 2FA</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Set up two-factor authentication to secure your account</CardDescription>
         </CardHeader>
     );
 };

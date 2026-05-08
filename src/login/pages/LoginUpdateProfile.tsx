@@ -12,9 +12,7 @@ import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Update your account information
-            </CardTitle>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Update your profile</CardTitle>
         </CardHeader>
     );
 };

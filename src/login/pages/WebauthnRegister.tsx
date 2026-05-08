@@ -11,10 +11,8 @@ import { Label } from "@/components/ui/label";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Passkey registration
-            </CardTitle>
-            <CardDescription id="card-description">Click or tap register to begin the registration process</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Passkey registration</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Register a passkey for faster, secure sign-in</CardDescription>
         </CardHeader>
     );
 };

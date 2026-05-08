@@ -12,10 +12,8 @@ import { Label } from "@/components/ui/label";
 const header = (msg: ReactElement<any, any>) => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                Forgot your password?
-            </CardTitle>
-            <CardDescription id="card-description">{msg}</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Forgot your password?</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">{msg}</CardDescription>
         </CardHeader>
     );
 };

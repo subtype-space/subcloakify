@@ -8,10 +8,8 @@ import { CardHeader, CardTitle, CardDescription, CardContent } from "@/component
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">
-                See ya later
-            </CardTitle>
-            <CardDescription id="card-description">Do you want to log out?</CardDescription>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Sign out</CardTitle>
+            <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Confirm you'd like to sign out</CardDescription>
         </CardHeader>
     );
 };

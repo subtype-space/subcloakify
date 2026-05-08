@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 const header = () => {
     return (
         <CardHeader>
-            <CardTitle id="card-title">One more thing</CardTitle>
+            <CardTitle id="card-title" className="uppercase font-black tracking-tight">Notice</CardTitle>
         </CardHeader>
     );
 };
