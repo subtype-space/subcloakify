@@ -174,7 +174,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                                     tabIndex={5}
                                                     id="rememberMe"
                                                     name="rememberMe"
-                                                    className="data-[state=checked]:bg-primary dark:bg-primary"
+                                                    className="data-[state=unchecked]:bg-muted-foreground/30 data-[state=checked]:bg-primary"
                                                     defaultChecked={!!login.rememberMe}
                                                 />
                                                 <Label htmlFor="rememberMe" className="text-sm">
