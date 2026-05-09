@@ -7,7 +7,7 @@ import { CardContent, CardTitle, CardHeader, CardDescription } from "@/component
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const header = () => {
     return (
@@ -185,7 +185,7 @@ function LogoutOtherSessions(props: { kcClsx: KcClsx; i18n: I18n }) {
         <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
             <div className={kcClsx("kcFormOptionsWrapperClass")}>
                 <div className="flex items-center space-x-2">
-                    <Switch id="logout-sessions" name="logout-sessions" value="on" defaultChecked={true} className="data-[state=checked]:bg-primary dark:bg-primary" />
+                    <Checkbox id="logout-sessions" name="logout-sessions" value="on" defaultChecked={true} />
                     <Label htmlFor="logout-sessions">{msg("logoutOtherSessions")}</Label>
                 </div>
             </div>

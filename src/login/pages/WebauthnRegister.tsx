@@ -5,7 +5,7 @@ import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 const header = () => {
@@ -74,7 +74,7 @@ function LogoutOtherSessions(props: { kcClsx: KcClsx; i18n: I18n }) {
         <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
             <div className="flex flex-col gap-6">
                 <div className="flex items-center gap-3">
-                    <Switch id="logout-sessions" name="logout-sessions" value="on" defaultChecked={true} className="data-[state=checked]:bg-primary dark:bg-primary"></Switch>
+                    <Checkbox id="logout-sessions" name="logout-sessions" value="on" defaultChecked={true} />
                     <Label htmlFor="logout-sessions">{msg("logoutOtherSessions")}</Label>
                 </div>
             </div>

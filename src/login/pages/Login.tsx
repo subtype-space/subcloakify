@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/checkbox";
 import { EyeClosed, EyeIcon } from "lucide-react";
 import useProviderLogos from "../useProviderLogos";
 
@@ -19,6 +19,10 @@ const providerLogos = useProviderLogos();
 const header = () => {
     return (
         <CardHeader>
+            <div className="flex items-center justify-between mb-1">
+                <span className="font-mono text-xs tracking-widest opacity-40">// AUTH-01</span>
+                <span className="font-mono text-xs tracking-widest opacity-40">SECURE ▲</span>
+            </div>
             <CardTitle id="card-title" className="uppercase font-black tracking-tight">Welcome back</CardTitle>
             <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Login with your email or a provider below</CardDescription>
         </CardHeader>
@@ -63,7 +67,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 <span className="w-full border-t" />
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-background px-2 text-muted-foreground">{msg("identity-provider-login-label")}</span>
+                                <span className="bg-background px-2 text-muted-foreground font-mono tracking-widest">· AUX PROVIDERS ·</span>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -112,13 +116,16 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             >
                                 {!usernameHidden && (
                                     <div className="space-y-2">
-                                        <Label htmlFor="username">
-                                            {!realm.loginWithEmailAllowed
-                                                ? msg("username")
-                                                : !realm.registrationEmailAsUsername
-                                                  ? msg("usernameOrEmail")
-                                                  : msg("email")}
-                                        </Label>
+                                        <div className="flex items-center justify-between">
+                                            <Label htmlFor="username">
+                                                {!realm.loginWithEmailAllowed
+                                                    ? msg("username")
+                                                    : !realm.registrationEmailAsUsername
+                                                      ? msg("usernameOrEmail")
+                                                      : msg("email")}
+                                            </Label>
+                                            <span className="font-mono text-xs opacity-40">01</span>
+                                        </div>
                                         <Input
                                             tabIndex={2}
                                             id="username"
@@ -143,7 +150,10 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 )}
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="password">{msg("password")}</Label>
+                                    <div className="flex items-center justify-between">
+                                        <Label htmlFor="password">{msg("password")}</Label>
+                                        <span className="font-mono text-xs opacity-40">02</span>
+                                    </div>
                                     <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
                                         <Input
                                             tabIndex={3}
@@ -170,11 +180,11 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                     {realm.rememberMe && !usernameHidden && (
                                         <div className="flex flex-col gap-6">
                                             <div className="flex items-center gap-3">
-                                                <Switch
+                                                <Checkbox
                                                     tabIndex={5}
                                                     id="rememberMe"
                                                     name="rememberMe"
-                                                    className="data-[state=unchecked]:bg-muted-foreground/30 data-[state=checked]:bg-primary"
+                                                    value="on"
                                                     defaultChecked={!!login.rememberMe}
                                                 />
                                                 <Label htmlFor="rememberMe" className="text-sm">

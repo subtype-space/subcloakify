@@ -68,11 +68,37 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
     }
 
     return (
-        <div className="bg-muted min-h-screen flex flex-col gap-6 items-center justify-center prose dark:prose-invert max-w-none">
-            
+        <div className="bg-muted min-h-screen flex flex-col gap-6 items-center justify-center prose dark:prose-invert max-w-none relative overflow-hidden">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute inset-0 w-full h-full pointer-events-none select-none z-0"
+                aria-hidden="true"
+            >
+                <defs>
+                    <pattern id="circuit-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                        <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#F3EADA" strokeWidth="0.4" opacity="0.15" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#circuit-grid)" />
+                <g stroke="#F3EADA" strokeWidth="1.5" fill="none" opacity="0.12">
+                    <path d="M -10 140 L 60 140 L 84 116 L 220 116 L 244 140 L 800 140" />
+                    <path d="M 900 360 L 480 360 L 456 384 L 300 384 L 276 360 L -10 360" />
+                </g>
+                <g fill="#F3EADA" opacity="0.18">
+                    <circle cx="84" cy="116" r="3" />
+                    <circle cx="244" cy="140" r="3" />
+                    <circle cx="456" cy="384" r="3" />
+                    <circle cx="276" cy="360" r="3" />
+                </g>
+            </svg>
+            <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 z-10">
+                <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">SUBTYPE · AUTH</span>
+                <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">REV 04 / 2026</span>
+            </div>
+
             {kcContext.properties["LOGO_URL"] && <img width="200" height="auto" alt="logo" src={kcContext.properties["LOGO_URL"]} className="" />}
 
-            <Card className="px-3 md:-[40rem] shadow-2xl w-full min-h-screen  md:w-[30rem] sm:min-h-fit ">
+            <Card className="px-3 md:-[40rem] shadow-2xl w-full min-h-screen  md:w-[30rem] sm:min-h-fit relative z-10">
                 <CardContent className="space-y-8 mb-2">
                     <header>
                         {(() => {

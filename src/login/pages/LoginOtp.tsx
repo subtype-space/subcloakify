@@ -8,6 +8,7 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 // Used https://github.com/encodia/strateco-login/blob/main/src/login/pages/LoginOtp.tsx
 
@@ -44,34 +45,26 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
             <CardContent>
                 <form id="kc-otp-login-form" className={kcClsx("kcFormClass")} action={url.loginAction} method="post">
                     {otpLogin.userOtpCredentials.length > 1 && (
-                        <div>
-                            <div>
-                                <div className="grid grid-cols-1  md:grid-cols-2 gap-1 my-5">
-                                    {otpLogin.userOtpCredentials.map((otpCredential, index) => (
-                                        <Fragment key={index}>
-                                            <div className="flex items-center ">
-                                                <input
-                                                    id={`kc-otp-credential-${index}`}
-                                                    className=" "
-                                                    type="radio"
-                                                    name="selectedCredentialId"
-                                                    value={otpCredential.id}
-                                                    defaultChecked={otpCredential.id === otpLogin.selectedCredentialId}
-                                                />
-                                                <label htmlFor={`kc-otp-credential-${index}`} tabIndex={index} className="mx-3">
-                                                    <div className="flex space-x-3  text-xl">
-                                                        <span>
-                                                            <i className={kcClsx("kcLoginOTPListItemIconClass")} aria-hidden="true"></i>
-                                                        </span>
-                                                        <span className="">{otpCredential.userLabel}</span>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        </Fragment>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                        <RadioGroup
+                            name="selectedCredentialId"
+                            defaultValue={otpLogin.selectedCredentialId}
+                            className="grid grid-cols-1 md:grid-cols-2 gap-1 my-5"
+                        >
+                            {otpLogin.userOtpCredentials.map((otpCredential, index) => (
+                                <Fragment key={index}>
+                                    <div className="flex items-center gap-3">
+                                        <RadioGroupItem
+                                            id={`kc-otp-credential-${index}`}
+                                            value={otpCredential.id}
+                                            tabIndex={index}
+                                        />
+                                        <label htmlFor={`kc-otp-credential-${index}`} className="text-xl cursor-pointer">
+                                            {otpCredential.userLabel}
+                                        </label>
+                                    </div>
+                                </Fragment>
+                            ))}
+                        </RadioGroup>
                     )}
 
                     <div className={kcClsx("kcFormGroupClass")}>
