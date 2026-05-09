@@ -80,16 +80,6 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#circuit-grid)" />
-                <g stroke="#F3EADA" strokeWidth="1.5" fill="none" opacity="0.12">
-                    <path d="M -10 140 L 60 140 L 84 116 L 220 116 L 244 140 L 800 140" />
-                    <path d="M 900 360 L 480 360 L 456 384 L 300 384 L 276 360 L -10 360" />
-                </g>
-                <g fill="#F3EADA" opacity="0.18">
-                    <circle cx="84" cy="116" r="3" />
-                    <circle cx="244" cy="140" r="3" />
-                    <circle cx="456" cy="384" r="3" />
-                    <circle cx="276" cy="360" r="3" />
-                </g>
             </svg>
             <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 z-10">
                 <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">SUBTYPE · AUTH</span>
