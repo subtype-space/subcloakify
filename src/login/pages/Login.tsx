@@ -19,10 +19,6 @@ const providerLogos = useProviderLogos();
 const header = () => {
     return (
         <CardHeader>
-            <div className="flex items-center justify-between mb-1">
-                <span className="font-mono text-xs tracking-widest opacity-40">// AUTH-01</span>
-                <span className="font-mono text-xs tracking-widest opacity-40">SECURE ▲</span>
-            </div>
             <CardTitle id="card-title" className="uppercase font-black tracking-tight">Welcome back</CardTitle>
             <CardDescription id="card-description" className="uppercase text-xs tracking-widest font-medium">Login with your email or a provider below</CardDescription>
         </CardHeader>
@@ -67,7 +63,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 <span className="w-full border-t" />
                             </div>
                             <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-background px-2 text-muted-foreground font-mono tracking-widest">· AUX PROVIDERS ·</span>
+                                <span className="bg-background px-2 text-muted-foreground font-mono tracking-widest">· PROVIDERS ·</span>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
