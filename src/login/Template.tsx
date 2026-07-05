@@ -11,6 +11,7 @@ import type { KcContext } from "./KcContext";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircleIcon, CircleCheck } from "lucide-react";
+import faviconUrl from "./assets/favicon.svg";
 
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
@@ -37,6 +38,18 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
 
     useEffect(() => {
         document.title = documentTitle ?? msgStr("loginTitle", realm.displayName);
+    }, []);
+
+    useEffect(() => {
+        // Replace Keycloak's default favicon with the theme's own, on the real login page.
+        let link = document.querySelector<HTMLLinkElement>("link[rel~='icon']");
+        if (link === null) {
+            link = document.createElement("link");
+            link.rel = "icon";
+            document.head.appendChild(link);
+        }
+        link.type = "image/svg+xml";
+        link.href = faviconUrl;
     }, []);
 
     useEffect(() => {
