@@ -11,7 +11,9 @@ export default defineConfig({
         keycloakify({
             accountThemeImplementation: "none",
             environmentVariables: [
-                { name: "LOGO_URL", default: ""}
+                { name: "LOGO_URL", default: ""},
+                { name: "HEADER_LEFT", default: ""},
+                { name: "HEADER_RIGHT", default: ""}
             ]
         }),
         tailwindcss()

@@ -82,8 +82,8 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                 <rect width="100%" height="100%" fill="url(#circuit-grid)" />
             </svg>
             <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 z-10">
-                <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">SUBTYPE · AUTH</span>
-                <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">REV 04 / 2026</span>
+                <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">{kcContext.properties["HEADER_LEFT"]}</span>
+                <span className="font-mono text-xs tracking-widest text-primary-foreground/50 not-prose">{kcContext.properties["HEADER_RIGHT"]}</span>
             </div>
 
             {kcContext.properties["LOGO_URL"] && <img width="200" height="auto" alt="logo" src={kcContext.properties["LOGO_URL"]} className="" />}
