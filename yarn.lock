@@ -3243,10 +3243,10 @@ jsonfile@^6.1.0:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
-keycloakify@^11.15.0:
-  version "11.15.0"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.15.0.tgz#53305e80b918fe5810df257a10c25dc87ef973ba"
-  integrity sha512-e44auIvwV3dgxGpwDuxYkFf3x+c2mxz6b4Uz8OelhCqR1FgxC9zprKnXjw1ZB80vX1546hDL99Or3PRbXXGujQ==
+keycloakify@^11.15.9:
+  version "11.15.9"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.15.9.tgz#2f2e935f3b5008a5416727ea7680629dbd5b3cad"
+  integrity sha512-iMlA8sNwG58cMZGECSJmfGglzvl9zBJdDfzsOZI7WkmARfGDN8k3bRHmjJaLx4+yeZkJUOiVzcid5c+6PgbR3g==
   dependencies:
     tsafe "^1.8.5"
 
