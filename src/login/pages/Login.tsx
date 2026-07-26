@@ -112,16 +112,13 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                             >
                                 {!usernameHidden && (
                                     <div className="space-y-2">
-                                        <div className="flex items-center justify-between">
-                                            <Label htmlFor="username">
-                                                {!realm.loginWithEmailAllowed
-                                                    ? msg("username")
-                                                    : !realm.registrationEmailAsUsername
-                                                      ? msg("usernameOrEmail")
-                                                      : msg("email")}
-                                            </Label>
-                                            <span className="font-mono text-xs opacity-40">01</span>
-                                        </div>
+                                        <Label htmlFor="username">
+                                            {!realm.loginWithEmailAllowed
+                                                ? msg("username")
+                                                : !realm.registrationEmailAsUsername
+                                                  ? msg("usernameOrEmail")
+                                                  : msg("email")}
+                                        </Label>
                                         <Input
                                             tabIndex={2}
                                             id="username"
@@ -146,10 +143,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                 )}
 
                                 <div className="space-y-2">
-                                    <div className="flex items-center justify-between">
-                                        <Label htmlFor="password">{msg("password")}</Label>
-                                        <span className="font-mono text-xs opacity-40">02</span>
-                                    </div>
+                                    <Label htmlFor="password">{msg("password")}</Label>
                                     <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
                                         <Input
                                             tabIndex={3}
