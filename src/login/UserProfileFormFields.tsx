@@ -1,7 +1,6 @@
-import type { JSX } from "keycloakify/tools/JSX";
 import { useEffect, Fragment } from "react";
 import { assert } from "keycloakify/tools/assert";
-import { useIsPasswordRevealed } from "./useIsPasswordRevealed";
+import { Password } from "./Password";
 import type { KcClsx } from "keycloakify/login/lib/kcClsx";
 import {
     useUserProfileForm,
@@ -238,61 +237,41 @@ function InputFieldByType(props: InputFieldByTypeProps) {
                 );
             }
 
-            const inputNode = <InputTag {...props} fieldIndex={undefined} />;
-
             if (attribute.name === "password" || attribute.name === "password-confirm") {
                 return (
-                    <PasswordWrapper kcClsx={props.kcClsx} i18n={props.i18n} passwordInputId={attribute.name}>
-                        {inputNode}
-                    </PasswordWrapper>
+                    <Password
+                        i18n={props.i18n}
+                        passwordInputId={attribute.name}
+                        renderInput={({ type }) => <InputTag {...props} fieldIndex={undefined} type={type} />}
+                    />
                 );
             }
 
-            return inputNode;
+            return <InputTag {...props} fieldIndex={undefined} />;
         }
     }
 }
 
-function PasswordWrapper(props: { kcClsx: KcClsx; i18n: I18n; passwordInputId: string; children: JSX.Element }) {
-    const { kcClsx, i18n, passwordInputId, children } = props;
-
-    const { msgStr } = i18n;
-
-    const { isPasswordRevealed, toggleIsPasswordRevealed } = useIsPasswordRevealed({ passwordInputId });
-
-    return (
-        <div className={kcClsx("kcInputGroup")}>
-            {children}
-            <button
-                type="button"
-                className={kcClsx("kcFormPasswordVisibilityButtonClass")}
-                aria-label={msgStr(isPasswordRevealed ? "hidePassword" : "showPassword")}
-                aria-controls={passwordInputId}
-                onClick={toggleIsPasswordRevealed}
-            >
-                <i className={kcClsx(isPasswordRevealed ? "kcFormPasswordVisibilityIconHide" : "kcFormPasswordVisibilityIconShow")} aria-hidden />
-            </button>
-        </div>
-    );
-}
-
-function InputTag(props: InputFieldByTypeProps & { fieldIndex: number | undefined }) {
-    const { attribute, fieldIndex, kcClsx, dispatchFormAction, valueOrValues, i18n, displayableErrors } = props;
+function InputTag(props: InputFieldByTypeProps & { fieldIndex: number | undefined; type?: "text" | "password" }) {
+    const { attribute, fieldIndex, kcClsx, dispatchFormAction, valueOrValues, i18n, displayableErrors, type } = props;
 
     const { advancedMsgStr } = i18n;
 
     return (
         <>
             <Input
-                type={(() => {
-                    const { inputType } = attribute.annotations;
+                type={
+                    type ??
+                    (() => {
+                        const { inputType } = attribute.annotations;
 
-                    if (inputType?.startsWith("html5-")) {
-                        return inputType.slice(6);
-                    }
+                        if (inputType?.startsWith("html5-")) {
+                            return inputType.slice(6);
+                        }
 
-                    return inputType ?? "text";
-                })()}
+                        return inputType ?? "text";
+                    })()
+                }
                 id={attribute.name}
                 name={attribute.name}
                 value={(() => {

@@ -1,10 +1,9 @@
-import type { JSX } from "keycloakify/tools/JSX";
 import { useState } from "react";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
-import { useIsPasswordRevealed } from "../useIsPasswordRevealed";
 import { clsx } from "keycloakify/tools/clsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
-import { getKcClsx, type KcClsx } from "keycloakify/login/lib/kcClsx";
+import { getKcClsx } from "keycloakify/login/lib/kcClsx";
+import { Password } from "../Password";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,6 @@ import { CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { EyeClosed, EyeIcon } from "lucide-react";
 import useProviderLogos from "../useProviderLogos";
 
 const providerLogos = useProviderLogos();
@@ -144,16 +142,20 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
 
                                 <div className="space-y-2">
                                     <Label htmlFor="password">{msg("password")}</Label>
-                                    <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
-                                        <Input
-                                            tabIndex={3}
-                                            id="password"
-                                            name="password"
-                                            type="password"
-                                            autoComplete="current-password"
-                                            aria-invalid={messagesPerField.existsError("username", "password")}
-                                        />
-                                    </PasswordWrapper>
+                                    <Password
+                                        i18n={i18n}
+                                        passwordInputId="password"
+                                        renderInput={({ id, type }) => (
+                                            <Input
+                                                tabIndex={3}
+                                                id={id}
+                                                name="password"
+                                                type={type}
+                                                autoComplete="current-password"
+                                                aria-invalid={messagesPerField.existsError("username", "password")}
+                                            />
+                                        )}
+                                    />
                                     {usernameHidden && messagesPerField.existsError("username", "password") && (
                                         <p
                                             id="input-error"
@@ -216,30 +218,5 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                 </div>
             </CardContent>
         </Template>
-    );
-}
-
-function PasswordWrapper(props: { kcClsx: KcClsx; i18n: I18n; passwordInputId: string; children: JSX.Element }) {
-    const { i18n, passwordInputId, children } = props;
-    const { msgStr } = i18n;
-    const { isPasswordRevealed, toggleIsPasswordRevealed } = useIsPasswordRevealed({ passwordInputId });
-
-    return (
-        <div className="relative">
-            {children}
-            <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                aria-label={msgStr(isPasswordRevealed ? "hidePassword" : "showPassword")}
-                aria-controls={passwordInputId}
-                onClick={toggleIsPasswordRevealed}
-            >
-                <i  aria-hidden >
-                    {isPasswordRevealed ? <EyeIcon/> : <EyeClosed/>}
-                </i>
-            </Button>
-        </div>
     );
 }
