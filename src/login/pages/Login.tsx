@@ -123,7 +123,6 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                             name="username"
                                             defaultValue={login.username ?? ""}
                                             type="text"
-                                            autoFocus
                                             autoComplete="username"
                                             aria-invalid={messagesPerField.existsError("username", "password")}
                                         />
