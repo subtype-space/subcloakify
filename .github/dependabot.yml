@@ -1,0 +1,34 @@
+version: 2
+updates:
+    # npm covers yarn.lock too.
+    - package-ecosystem: npm
+      directory: /
+      schedule:
+          interval: weekly
+          day: monday
+      open-pull-requests-limit: 5
+      groups:
+          # One PR for all minor and patch version updates.
+          npm-minor-patch:
+              applies-to: version-updates
+              patterns:
+                  - "*"
+              update-types:
+                  - minor
+                  - patch
+          # One PR for all security updates.
+          npm-security:
+              applies-to: security-updates
+              patterns:
+                  - "*"
+      # Major updates are not grouped. Each one gets its own PR for review.
+
+    - package-ecosystem: github-actions
+      directory: /
+      schedule:
+          interval: weekly
+          day: monday
+      groups:
+          github-actions:
+              patterns:
+                  - "*"
